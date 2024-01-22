@@ -24,8 +24,10 @@ def setup():
     ax_virtual.set_aspect('equal', 'box')
     z1 = 1 + cmath.sqrt(1 + 1j)
     z2 = 1 - cmath.sqrt(1 + 1j)
-    ax_virtual.scatter([z1.real, z2.real], [0, 0], color='red', s=40, marker='o',
+    z3 = 0 - 1j
+    ax_virtual.scatter([z1.real, z2.real], [z1.imag, z1.imag], color='red', s=40, marker='o',
                        label=r'выколотые точки $z = 1 \pm \sqrt{1 + i}$')
+    ax_virtual.scatter([z3.real], [z3.imag], color='red', s=40, marker='o', label= r'выколотая точка $z = -i$')
     ax_virtual.grid()
     ax_virtual.legend(loc='lower left')
 
@@ -141,5 +143,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
